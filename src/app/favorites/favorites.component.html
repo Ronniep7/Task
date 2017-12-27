@@ -1,0 +1,29 @@
+<div class="container" >
+    <button class="btn btn-danger" [routerLink] = "['/Countries']" >Countries</button>
+    <button class="btn btn-danger" [routerLink] = "['/Imdb']" >Imdb</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Provider</th>
+        <th>Favorites</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Favorite of Favorites| paginate: {itemsPerPage: 10, currentPage:page, id: '1'};let i = index"  >
+        <th>{{i}}</th>
+        <td>{{Favorite.name}}</td>
+        <th>{{Favorite.Provider}}</th>
+        <th><input (click)="RemoveFromFavorites(i)" [checked]="!Clicked" type="checkbox" ></th>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="page = $event" id="1"
+    maxSize="10"
+    directionLinks="true"
+    autoHide="true">
+</pagination-controls>
+  </table>
+  </div>
+  

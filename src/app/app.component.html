@@ -1,0 +1,15 @@
+
+<html>
+<body>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <li><a [routerLink] = "['/Favorites']">Favorites</a></li>
+      <li><a [routerLink] = "['/Countries']">Countries</a></li>
+      <li><a [routerLink] = "['/Imdb']">Imdb</a></li>
+    
+    </div>
+    
+    <span onclick="openNav()">&#9776; open</span>
+    <router-outlet  ></router-outlet>    
+</body>
+</html>

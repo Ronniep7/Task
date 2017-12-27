@@ -1,0 +1,32 @@
+<div class="container" >
+  <button class="btn btn-danger" [routerLink] = "['/Favorites']" >Favorites</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Poster</th>
+        <th>Favorites</th>
+      </tr>
+    </thead>
+    <tbody [@Movies]="Movies.length" >
+      <tr *ngFor="let Movie of Movies| paginate: {itemsPerPage: 10, currentPage:page, id: '1'};let i = index"  >
+        <th>{{i}}</th>
+        <td>{{Movie.Title}}</td>
+        <th>{{Movie.Year}}</th>
+        <td>{{Movie.Type}}</td>
+        <th><img [src]="Movie.Poster" ></th>
+        <th><input (click)="AddToFavorites(i)" [checked]="Clicked" type="checkbox" ></th>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="page = $event" id="1"
+    maxSize="10"
+    directionLinks="true"
+    autoHide="true">
+</pagination-controls>
+  </table>
+  </div>
+  
